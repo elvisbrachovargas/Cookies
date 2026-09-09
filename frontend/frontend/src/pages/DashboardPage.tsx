@@ -147,10 +147,11 @@ export function DashboardPage({ onLogout }: DashboardPageProps) {
           <aside className="cookie-consent" aria-label="Consentimiento de cookies">
             <div className="cookie-consent__copy">
               <p>
-                Con su acuerdo, nosotros y <a href="#cookie-partners">nuestros socios</a> usamos cookies o tecnologías similares para almacenar,
+                Antes de aceptar, te informamos de las finalidades: las cookies esenciales permiten el funcionamiento del sitio; las de análisis miden el uso; y las de marketing permiten personalizar publicidad. Con su acuerdo, nosotros y <a href="#cookie-partners">nuestros socios</a> usamos cookies o tecnologías similares para almacenar,
                 acceder y procesar datos personales como su visita en este sitio web. Puede retirar su consentimiento o configurar sus preferencias
                 en cualquier momento haciendo clic en «Configuración».
               </p>
+              <a className="cookie-consent__partners" href="/politica-cookies.html">Leer la Política de Cookies</a>
               <a className="cookie-consent__partners" href="#cookie-partners">Ver nuestros 24 socios</a>
               <strong>Nosotros y nuestros socios hacemos el siguiente tratamiento de datos:</strong>
               <span id="cookie-partners">Almacenar la información en un dispositivo y/o acceder a ella, compartir datos y perfiles para análisis y publicidad personalizada, medición de publicidad y contenido, investigación de audiencia y desarrollo de servicios.</span>
@@ -177,7 +178,7 @@ export function DashboardPage({ onLogout }: DashboardPageProps) {
                 <div className="cookie-settings__body">
                   <p>Este Sitio Web utiliza cookies propias y de otras entidades, para poder acceder y usar su información para las finalidades que se indican a continuación. Si no está de acuerdo con alguna de estas finalidades, podrá personalizar sus opciones a través de esta pantalla.</p>
                   <p>Nosotros y las empresas que colaboran con nosotros, tales como anunciantes, operadores publicitarios o intermediarios, usaremos su información obtenida a través de las cookies. Para conocer las empresas colaboradoras que incorporan sus cookies en nuestro sitio web puede acceder a través del botón <strong>Ver nuestros socios.</strong></p>
-                  <p><strong>Información adicional:</strong> Puede conocer la información completa sobre el uso de las cookies, su configuración, origen, finalidades y derechos en nuestra <a href="#cookie-policy">Política de Cookies</a>.</p>
+                  <p><strong>Información adicional:</strong> Puede conocer la información completa sobre el uso de las cookies, su configuración, origen, finalidades y derechos en nuestra <a href="/politica-cookies.html">Política de Cookies</a>.</p>
                   <p>Usted permite el uso de las cookies para las siguientes finalidades:</p>
                   {COOKIE_PURPOSES.map((purpose) => {
                     const isExpanded = expandedPurpose === purpose.id

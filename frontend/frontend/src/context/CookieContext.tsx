@@ -13,7 +13,32 @@ interface CookieContextType {
 }
 
 const COOKIE_NAME = 'user_cookie_consent'
+const POLICY_VERSION = '2026-09-09'
 const CookieContext = createContext<CookieContextType | null>(null)
+
+function createConsentId() {
+  return crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`
+}
+
+function recordConsent(preferences: CookiePreferences) {
+  const policyUrl = new URL('/politica-cookies.html', window.location.origin).href
+  void fetch('/api/consents/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      consent_id: preferences.consentId,
+      preferences: {
+        essential: preferences.essential,
+        analytics: preferences.analytics,
+        marketing: preferences.marketing,
+      },
+      decided_at: preferences.timestamp,
+      policy_version: POLICY_VERSION,
+      policy_url: policyUrl,
+      source: 'cookie-banner',
+    }),
+  }).catch(() => undefined)
+}
 
 function loadScripts(preferences: CookiePreferences) {
   if (preferences.analytics && !document.getElementById('ga-script')) {
@@ -53,10 +78,12 @@ export function CookieProvider({ children }: { children: ReactNode }) {
   }, [storedConsent])
 
   function saveConsent(newPreferences: CookiePreferences) {
-    setPreferences(newPreferences)
+    const auditablePreferences = { ...newPreferences, consentId: createConsentId() }
+    setPreferences(auditablePreferences)
     setHasResponded(true)
-    Cookies.set(COOKIE_NAME, JSON.stringify(newPreferences), { expires: 365, sameSite: 'Lax' })
-    loadScripts(newPreferences)
+    Cookies.set(COOKIE_NAME, JSON.stringify(auditablePreferences), { expires: 365, sameSite: 'Lax' })
+    loadScripts(auditablePreferences)
+    recordConsent(auditablePreferences)
   }
 
   function acceptAll() {

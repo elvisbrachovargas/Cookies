@@ -3,6 +3,7 @@ export interface CookiePreferences {
   analytics: boolean
   marketing: boolean
   timestamp: string
+  consentId?: string
 }
 
 export const DEFAULT_PREFERENCES: CookiePreferences = {

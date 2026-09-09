@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from post.views import record_consent
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/consents/', record_consent, name='record-consent'),
 ]
