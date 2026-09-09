@@ -158,11 +158,14 @@ export function DashboardPage({ onLogout, onOpenPolicy }: DashboardPageProps) {
               <span id="cookie-partners">Almacenar la información en un dispositivo y/o acceder a ella, compartir datos y perfiles para análisis y publicidad personalizada, medición de publicidad y contenido, investigación de audiencia y desarrollo de servicios.</span>
             </div>
             <div className="cookie-consent__actions">
+              <Button className="cookie-reject-button" type="button" onClick={rejectOptional}>
+                Solo necesarias
+              </Button>
               <Button className="cookie-settings-button" type="button" onClick={openCookieSettings}>
                 Configuración
               </Button>
               <Button className="cookie-accept-button" type="button" onClick={acceptAll}>
-                Aceptar
+                Aceptar todo
               </Button>
             </div>
           </aside>
