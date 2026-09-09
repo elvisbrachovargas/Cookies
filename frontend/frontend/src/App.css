@@ -405,6 +405,15 @@
 .cookie-footer-controls em { color: #777; font-size: 14px; }
 .cookie-reopen-button { position: fixed; right: 24px; bottom: 24px; z-index: 5; width: auto; padding: 10px 16px; border-radius: 24px; color: #17232a; background: #f3b562; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22); }
 .cookie-reopen-button:hover { background: #ffd18e; }
+.cookie-policy-link { display: block; margin: 10px 0; padding: 0; border: 0; color: #27546b; background: transparent; font: inherit; font-size: 14px; font-weight: 700; text-decoration: underline; cursor: pointer; }
+.cookie-policy-link--inline { display: inline; margin: 0; font-size: inherit; }
+
+.policy-page { min-height: 100svh; box-sizing: border-box; padding: 48px 24px; background: #eef3f1; }
+.policy-document { width: min(100%, 820px); box-sizing: border-box; margin: 0 auto; padding: 36px; color: #24343d; background: #fff; border: 1px solid #d9e2e8; border-radius: 8px; line-height: 1.65; }
+.policy-document h1 { margin-top: 0; color: #173f43; }
+.policy-document h2 { margin-top: 30px; color: #1d6f78; font-size: 1.2rem; }
+.policy-meta { color: #63727a; font-size: .92rem; }
+.policy-back-button { margin-top: 12px; padding: 12px 18px; border: 0; border-radius: 4px; color: #fff; background: #1d6f78; font: inherit; font-weight: 700; cursor: pointer; }
 
 @keyframes cookie-slide-up {
   from { transform: translateY(100%); opacity: 0; }

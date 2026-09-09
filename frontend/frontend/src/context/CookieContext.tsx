@@ -21,7 +21,7 @@ function createConsentId() {
 }
 
 function recordConsent(preferences: CookiePreferences) {
-  const policyUrl = new URL('/politica-cookies.html', window.location.origin).href
+  const policyUrl = new URL('/politica-cookies', window.location.origin).href
   void fetch('/api/consents/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
